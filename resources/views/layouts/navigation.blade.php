@@ -18,6 +18,17 @@
         </a>
     </li>
 
+    <li class="nav-item {{ request()->routeIs('shipments.*') ? 'active' : '' }}">
+        <a href="{{ route('shipments.index') }}" class="nav-link">
+            <span>
+                <span class="sidebar-icon me-3">
+                    <i class="fas fa-ship"></i>
+                </span>
+                <span class="sidebar-text">{{ __('Shipments') }}</span>
+            </span>
+        </a>
+    </li>
+
     <li class="nav-item {{ request()->routeIs('companies.*') || request()->routeIs('users.*') ? 'active' : '' }}">
         <span class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
             data-bs-target="#admin-settings">
