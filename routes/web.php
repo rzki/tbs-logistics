@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
         Route::get('users', UserIndex::class)->name('users.index');
         Route::get('users/create', UserCreate::class)->name('users.create');
         Route::get('users/{userId}/edit', UserEdit::class)->name('users.edit');
+    });
+    Route::middleware('role:Superadmin')->group(function () {
         Route::get('roles', RoleIndex::class)->name('roles.index');
         Route::get('roles/create', RoleCreate::class)->name('roles.create');
         Route::get('roles/{roleId}/edit', RoleEdit::class)->name('roles.edit');

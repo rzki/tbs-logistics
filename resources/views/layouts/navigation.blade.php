@@ -29,7 +29,7 @@
         </a>
     </li>
 
-    @if (Auth::user()->hasRole('Superadmin'))
+    @if (Auth::user()->hasRole(['Superadmin', 'Admin']))
         <li class="nav-item {{ request()->routeIs('companies.*') || request()->routeIs('users.*') ? 'active' : '' }}">
             <span class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
                 data-bs-target="#admin-settings">
@@ -58,6 +58,7 @@
                             <span class="sidebar-text">{{ __('Users') }}</span>
                         </a>
                     </li>
+                    @if (Auth::user()->hasRole('Superadmin'))
                     <li class="nav-item {{ request()->routeIs('roles.*') ? 'active' : '' }}">
                         <a href="{{ route('roles.index') }}" class="nav-link" wire:navigate>
                             <span class="sidebar-icon">
@@ -66,6 +67,7 @@
                             <span class="sidebar-text">{{ __('Roles') }}</span>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </div>
         </li>
