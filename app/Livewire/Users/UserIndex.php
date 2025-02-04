@@ -39,7 +39,7 @@ class UserIndex extends Component
     {
         $this->user = User::where('userId', $userId)->first();
         $this->user->update([
-            'password' => '',
+            'password' => 'Tbs2025!',
         ]);
         session()->flash('alert', [
             'type' => 'success',

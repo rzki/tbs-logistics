@@ -19,7 +19,7 @@ class UserCreate extends Component
             'userId' => Str::orderedUuid(),
             'name' => $this->name,
             'email' => $this->email,
-            'password' => '',
+            'password' => 'Tbs2025!',
         ]);
         $user->assignRole($this->position);
         session()->flash('alert', [
@@ -38,7 +38,7 @@ class UserCreate extends Component
     {
         return view('livewire.users.user-create',[
             // Include this if you installed spatie/laravel-permission and use roles for User
-            // 'roles' => Role::all()
+            'roles' => Role::all()
         ]);
     }
 }
