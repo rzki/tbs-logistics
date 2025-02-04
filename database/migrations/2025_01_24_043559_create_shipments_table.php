@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('shipmentId')->unique();
             $table->string('shipment_number')->unique();
+            $table->string('shipment_goods_name');
             $table->string('shipment_sender');
             $table->string('shipment_receiver');
             $table->string('shipment_origin');
