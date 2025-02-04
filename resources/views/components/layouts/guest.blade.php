@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title.' - '.config('app.name') ?? 'Laravel' }}</title>
+    <title>{{ $title . ' - ' . config('app.name') ?? 'Laravel' }}</title>
 
     <!-- Styles -->
     @vite('resources/sass/app.scss')
+    {{-- Timeline --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/timeline-8.css') }}"><link rel="stylesheet" href="{{ asset('assets/css/responsive-widths-bootstrap-minified.css') }}">
 </head>
 
 <body>
-    <main>
-        <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center justify-content-center">
+    <main class="min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="flex-fill">
             {{ $slot }}
-        </section>
+        </div>
     </main>
 </body>
 
