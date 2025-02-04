@@ -1,6 +1,9 @@
 <div>
     <div class="container">
         <div class="row justify-content-center">
+            <div class="logo text-center mb-5">
+                <img src="{{ asset('images/logo-tbs_converted.webp') }}" alt="" class="img-fluid w-lg-35 w-sm-75">
+            </div>
             <div class="col-12 d-flex align-items-center justify-content-center">
                 <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                     <div class="text-center text-md-center mb-4 mt-md-0">
