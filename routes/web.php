@@ -4,6 +4,7 @@ use App\Livewire\Dashboard;
 use App\Livewire\MyProfile;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Logout;
+use App\Livewire\Public\ShipmentDetail;
 use App\Livewire\Roles\RoleEdit;
 use App\Livewire\Users\UserEdit;
 use App\Livewire\Roles\RoleIndex;
@@ -15,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Shipments\ShipmentEdit;
 use App\Livewire\Shipments\ShipmentIndex;
 use App\Livewire\Shipments\ShipmentCreate;
+use App\Livewire\Public\ShipmentIndex as ShipmentSearch;
 use App\Livewire\Shipments\Histories\ShipmentHistoryEdit;
 use App\Livewire\Shipments\Histories\ShipmentHistoryIndex;
 use App\Livewire\Shipments\Histories\ShipmentHistoryCreate;
 
-Route::get('/', Login::class)->name('login');
+Route::get('/', ShipmentSearch::class)->name('shipments.search');
+Route::get('/shipments/search/{shipmentId}', ShipmentDetail::class)->name('shipments.show');
+Route::get('/login', Login::class)->name('login');
 
 
 Route::middleware('auth')->group(function () {

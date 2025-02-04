@@ -17,40 +17,34 @@
                                     <form wire:submit='update'>
                                         <!-- /.row -->
                                         <div class="row">
-                                            <div class="form-group mb-3 col-lg-6">
-                                                <label for="shipment_sender"
-                                                    class="form-label">{{ __('Sender') }}</label>
-                                                <input type="text" name="shipment_sender" id="shipment_sender"
-                                                    class="form-control" wire:model='shipment_sender'>
-                                            </div>
-                                            <div class="form-group mb-3 col-lg-6">
-                                                <label for="shipment_receiver"
-                                                    class="form-label">{{ __('Receiver') }}</label>
-                                                <input type="text" name="shipment_receiver" id="shipment_receiver"
-                                                    class="form-control" wire:model='shipment_receiver'>
-                                            </div>
-                                            <div class="form-group mb-3 col-lg-6">
-                                                <label for="shipment_origin"
-                                                    class="form-label">{{ __('Origin') }}</label>
-                                                <input type="text" name="shipment_origin" id="shipment_origin"
-                                                    class="form-control" wire:model='shipment_origin'>
-                                            </div>
-                                            <div class="form-group mb-3 col-lg-6">
-                                                <label for="shipment_destination"
-                                                    class="form-label">{{ __('Destination') }}</label>
-                                                <input type="text" name="shipment_destination" id="shipment_destination"
-                                                    class="form-control" wire:model='shipment_destination'>
-                                            </div>
                                             <div class="form-group mb-3">
-                                                <label for="shipment_number"
-                                                    class="form-label">{{ __('Tracking Number') }}</label>
-                                                <input type="text" name="shipment_number" id="shipment_number"
-                                                    class="form-control" wire:model='shipment_number'>
+                                                <label for="shipment_number" class="form-label">{{ __('Tracking Number') }}</label>
+                                                <input type="text" name="shipment_number" id="shipment_number" class="form-control" wire:model='shipment_number'>
+                                            </div>
+                                            <div class="form-group mb-3 col-lg-6">
+                                                <label for="shipment_origin" class="form-label">{{ __('Origin') }}</label>
+                                                <input type="text" name="shipment_origin" id="shipment_origin" class="form-control" wire:model='shipment_origin'>
+                                            </div>
+                                            <div class="form-group mb-3 col-lg-6">
+                                                <label for="shipment_destination" class="form-label">{{ __('Destination') }}</label>
+                                                <input type="text" name="shipment_destination" id="shipment_destination" class="form-control" wire:model='shipment_destination'>
+                                            </div>
+                                            <div class="form-group mb-3 col-lg-4">
+                                                <label for="shipment_name" class="form-label">{{ __('Package Name') }}</label>
+                                                <input type="text" name="shipment_name" id="shipment_name" class="form-control" wire:model='shipment_name'>
+                                            </div>
+                                            <div class="form-group mb-3 col-lg-4">
+                                                <label for="shipment_sender" class="form-label">{{ __('Sender') }}</label>
+                                                <input type="text" name="shipment_sender" id="shipment_sender" class="form-control" wire:model='shipment_sender'>
+                                            </div>
+                                            <div class="form-group mb-3 col-lg-4">
+                                                <label for="shipment_receiver" class="form-label">{{ __('Receiver') }}</label>
+                                                <input type="text" name="shipment_receiver" id="shipment_receiver" class="form-control" wire:model='shipment_receiver'>
                                             </div>
                                         </div>
                                         <div class="d-grid">
                                             <button type="submit"
-                                                class="btn btn-success text-white">{{ __('Submit') }}</button>
+                                                    class="btn btn-success text-white">{{ __('Submit') }}</button>
                                         </div>
                                     </form>
                                 </div>

@@ -13,7 +13,7 @@
                                             <a href="{{ route('shipments.create') }}" class="btn btn-success ml-3 text-white" wire:navigate><i class="fa fa-plus" aria-hidden="true"></i>{{ __(' Create New Shipment') }}</a>
                                         </div>
                                     </div>
-                                    <div class="table-wrapper table-responsive">
+                                    <div class="table-responsive">
                                         <table class="table striped-table text-black text-center">
                                             <thead>
                                                 <tr>
@@ -28,7 +28,9 @@
                                             <tbody>
                                                 @foreach ($shipments as $ship)
                                                     <tr>
-                                                        <td class="text-center">{{ $ship->shipment_number ?? '' }}</td>
+                                                        <td class="text-center">
+                                                            <a href="{{ route('shipment.histories.index', $ship->shipmentId) }}" class="text-black text-decoration-none">{{ $ship->shipment_number }}</a>
+                                                        </td>
                                                         <td class="text-center">{{ $ship->shipment_sender ?? '' }}</td>
                                                         <td class="text-center">{{ $ship->shipment_receiver ?? '' }}</td>
                                                         <td class="text-center">{{ $ship->shipment_origin ?? '' }}</td>

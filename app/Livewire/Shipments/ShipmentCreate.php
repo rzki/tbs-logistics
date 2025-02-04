@@ -10,12 +10,14 @@ use Illuminate\Support\Str;
 
 class ShipmentCreate extends Component
 {
-    public $shipment_number, $shipment_sender, $shipment_receiver, $shipment_origin, $shipment_destination;
+    public $shipment_number, $shipment_name, $shipment_sender, $shipment_receiver, $shipment_origin, $shipment_destination;
     public function create()
     {
+        $uuid = Str::orderedUuid();
         Shipment::create([
-            'shipmentId' => Str::orderedUuid(),
+            'shipmentId' => $uuid,
             'shipment_number' => $this->shipment_number,
+            'shipment_goods_name' => $this->shipment_name,
             'shipment_sender' => $this->shipment_sender,
             'shipment_receiver' => $this->shipment_receiver,
             'shipment_origin' => $this->shipment_origin,
@@ -31,7 +33,7 @@ class ShipmentCreate extends Component
             'progbar' => false,
             'showConfirmButton' => false,
         ]);
-        return $this->redirectRoute('shipments.index', navigate: true);
+        return $this->redirectRoute('shipment.histories.create', ['shipmentId' => $uuid], navigate: true);
     }
     #[Title('Create New Shipment')]
     public function render()

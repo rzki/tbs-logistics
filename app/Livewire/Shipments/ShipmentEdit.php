@@ -2,31 +2,34 @@
 
 namespace App\Livewire\Shipments;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 use App\Models\Shipment;
 
 class ShipmentEdit extends Component
 {
-    public $shipment, $shipmentId, $sender, $receiver, $location, $notes, $status;
+    public $shipment, $shipmentId, $shipment_number, $shipment_name, $shipment_sender, $shipment_receiver, $shipment_origin, $shipment_destination;
     
     public function mount($shipmentId)
     {
         $this->shipment = Shipment::where('shipmentId', $shipmentId)->first();
-        $this->sender = $this->shipment->shipment_sender;
-        $this->receiver = $this->shipment->shipment_receiver;
-        $this->location = $this->shipment->shipment_location;
-        $this->notes = $this->shipment->shipment_notes;
-        $this->status = $this->shipment->shipment_status;
+        $this->shipment_number = $this->shipment->shipment_number;
+        $this->shipment_name = $this->shipment->shipment_goods_name;
+        $this->shipment_sender = $this->shipment->shipment_sender;
+        $this->shipment_receiver = $this->shipment->shipment_receiver;
+        $this->shipment_origin = $this->shipment->shipment_origin;
+        $this->shipment_destination = $this->shipment->shipment_destination;
     }
 
     public function update()
     {
         Shipment::where('shipmentId', $this->shipment->shipmentId)->update([
-            'shipment_sender' => $this->sender,
-            'shipment_receiver' => $this->receiver,
-            'shipment_location' => $this->location,
-            'shipment_status' => $this->status,
-            'shipment_updated_at' => now(),
+            'shipment_number' => $this->shipment_number,
+            'shipment_goods_name' => $this->shipment_name,
+            'shipment_sender' => $this->shipment_sender,
+            'shipment_receiver' => $this->shipment_receiver,
+            'shipment_origin' => $this->shipment_origin,
+            'shipment_destination' => $this->shipment_destination
         ]);
         session()->flash('alert', [
             'type' => 'success',
@@ -39,6 +42,7 @@ class ShipmentEdit extends Component
         ]);
         return $this->redirectRoute('shipments.index', navigate: true);
     }
+    #[Title('Edit Shipment')]
     public function render()
     {
         return view('livewire.shipments.shipment-edit');

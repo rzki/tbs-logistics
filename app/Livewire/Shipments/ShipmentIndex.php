@@ -41,7 +41,7 @@ class ShipmentIndex extends Component
     public function render()
     {
         return view('livewire.shipments.shipment-index',[
-            'shipments' => Shipment::search($this->search)->latest()->paginate($this->perPage),
+            'shipments' => Shipment::latest()->paginate($this->perPage),
         ]);
     }
 }

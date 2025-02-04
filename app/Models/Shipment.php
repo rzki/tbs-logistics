@@ -11,10 +11,4 @@ class Shipment extends Model
     {
         return $this->hasMany(ShipmentHistory::class);
     }
-    public function scopeSearch($query, $search)
-    {
-        return $query->where('shipment_number', 'like', '%'.$search.'%')
-            ->orWhere('shipment_sender', 'like', '%'.$search.'%')
-            ->orWhere('shipment_receiver', 'like', '%'.$search.'%');
-    }
 }
