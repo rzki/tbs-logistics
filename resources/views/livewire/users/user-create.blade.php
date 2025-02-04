@@ -16,7 +16,7 @@
                                 <div class="col">
                                     <form wire:submit='create'>
                                         <div class="row mb-3">
-                                            <div class="col-lg-4 mb-3 form-group">
+                                            <div class="col-lg-6 mb-3 form-group">
                                                 <label for="name" class="form-label">{{ __('Name') }}</label>
                                                 <input type="text" id="name" class="form-control" wire:model='name'>
                                                 @error('name') <span class="text-danger">{{ $message }}</span> @enderror
@@ -26,7 +26,7 @@
                                                 <input type="email" id="email" class="form-control" wire:model='email'>
                                                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
-                                            <div class="col-lg-4 mb-3 form-group">
+                                            <div class="col mb-3 form-group">
                                                 <label for="position" class="form-label">{{ __('Position') }}</label>
                                                 <select name="position" id="position" class="form-control" wire:model="position">
                                                     <option value="">Select Position</option>

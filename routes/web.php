@@ -34,12 +34,15 @@ Route::middleware('auth')->group(function () {
     Route::get('shipments/{shipmentId}/histories', ShipmentHistoryIndex::class)->name('shipment.histories.index');
     Route::get('shipments/{shipmentId}/histories/create', ShipmentHistoryCreate::class)->name('shipment.histories.create');
     Route::get('shipments/{shipmentId}/histories/{shipmentHistoryId}/edit', ShipmentHistoryEdit::class)->name('shipment.histories.edit');
-    Route::get('users', UserIndex::class)->name('users.index');
-    Route::get('users/create', UserCreate::class)->name('users.create');
-    Route::get('users/{userId}/edit', UserEdit::class)->name('users.edit');
-    Route::get('roles', RoleIndex::class)->name('roles.index');
-    Route::get('roles/create', RoleCreate::class)->name('roles.create');
-    Route::get('roles/{roleId}/edit', RoleEdit::class)->name('roles.edit');
+    // Restrict access to superadmin & admin only
+    Route::middleware('role:Superadmin|Admin')->group(function () {
+        Route::get('users', UserIndex::class)->name('users.index');
+        Route::get('users/create', UserCreate::class)->name('users.create');
+        Route::get('users/{userId}/edit', UserEdit::class)->name('users.edit');
+        Route::get('roles', RoleIndex::class)->name('roles.index');
+        Route::get('roles/create', RoleCreate::class)->name('roles.create');
+        Route::get('roles/{roleId}/edit', RoleEdit::class)->name('roles.edit');
+    });
     Route::get('profile', MyProfile::class)->name('profile.show');
     Route::get('logout', Logout::class)->name('logout');
 });
