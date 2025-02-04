@@ -14,6 +14,7 @@
                 <div class="row detail-shipment px-5 mb-4">
                     <div class="col-lg-8">
                         <p class="fs-6"><b>{{ __('Nomor Resi') }}</b> : {{ $shipmentDetail->shipment_number }}</p>
+                        <p class="fs-6"><b>{{ __('Nama Barang') }}</b> : {{ $shipmentDetail->shipment_goods_name }}</p>
                         <p class="fs-6"><b>{{ __('Pengirim') }}</b> : {{ $shipmentDetail->shipment_sender }}</p>
                         <p class="fs-6"><b>{{ __('Penerima') }}</b> : {{ $shipmentDetail->shipment_receiver }}</p>
                     </div>

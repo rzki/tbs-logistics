@@ -18,6 +18,7 @@
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">{{ __('Tracking Number') }}</th>
+                                                    <th class="text-center">{{ __('Goods Name') }}</th>
                                                     <th class="text-center">{{ __('Sender') }}</th>
                                                     <th class="text-center">{{ __('Receiver') }}</th>
                                                     <th class="text-center">{{ __('Origin') }}</th>
@@ -31,6 +32,7 @@
                                                         <td class="text-center">
                                                             <a href="{{ route('shipment.histories.index', $ship->shipmentId) }}" class="text-black text-decoration-none">{{ $ship->shipment_number }}</a>
                                                         </td>
+                                                        <td class="text-center">{{ $ship->shipment_goods_name ?? '' }}</td>
                                                         <td class="text-center">{{ $ship->shipment_sender ?? '' }}</td>
                                                         <td class="text-center">{{ $ship->shipment_receiver ?? '' }}</td>
                                                         <td class="text-center">{{ $ship->shipment_origin ?? '' }}</td>

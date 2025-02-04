@@ -26,6 +26,7 @@
                             <thead>
                                 <tr>
                                     <th>{{ __('Nomor Resi') }}</th>
+                                    <th>{{ __('Nama Barang') }}</th>
                                     <th>{{ __('Pengirim') }}</th>
                                     <th>{{ __('Penerima') }}</th>
                                     <th>{{ __('Asal') }}</th>
@@ -38,6 +39,7 @@
                                 @forelse ($shipment as $ship)
                                     <tr>
                                         <td>{{ $ship->shipment_number }}</td>
+                                        <td>{{ $ship->shipment_goods_name }}</td>
                                         <td>{{ $ship->shipment_sender }}</td>
                                         <td>{{ $ship->shipment_receiver }}</td>
                                         <td>{{ $ship->shipment_origin }}</td>
