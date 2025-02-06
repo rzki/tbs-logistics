@@ -41,7 +41,7 @@ class ShipmentHistoryIndex extends Component
         return view('livewire.shipments.histories.shipment-history-index',[
             'shipmentDetail' => $this->shipment,
             'shipmentHistories' => $this->shipment->histories,
-            'latestShipmentStatus' => $this->shipment->histories->first(),
+            'latestShipmentStatus' => $this->shipment->histories->last(),
         ]);
     }
 }
