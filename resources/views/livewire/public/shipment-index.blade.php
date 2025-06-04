@@ -1,9 +1,9 @@
 <div>
     <div class="row">
         <div class="logo text-center mb-5">
-            <img src="{{ asset('images/logo-tbs_converted.webp') }}" alt="" class="img-fluid w-15">
+            <img src="{{ asset('images/logo-tbs_converted.webp') }}" alt="" class="img-fluid w-35">
         </div>
-        <div class="col d-flex align-items-center justify-content-center">
+        <div class="col d-flex align-items-center justify-content-center w-85 mx-auto">
             <div class="bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-50">
                 <div class="text-center text-md-center mb-4 mt-md-0">
                     <h1 class="mb-3 h3">{{ 'Lacak Pengiriman' }}</h1>
@@ -26,24 +26,14 @@
                             <thead>
                                 <tr>
                                     <th>{{ __('Nomor Resi') }}</th>
-                                    <th>{{ __('Nama Barang') }}</th>
-                                    <th>{{ __('Pengirim') }}</th>
-                                    <th>{{ __('Penerima') }}</th>
-                                    <th>{{ __('Asal') }}</th>
-                                    <th>{{ __('Tujuan') }}</th>
                                     <th>{{ __('Status') }}</th>
-                                    <th>{{ __('') }}</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($shipment as $ship)
                                     <tr>
                                         <td>{{ $ship->shipment_number }}</td>
-                                        <td>{{ $ship->shipment_goods_name }}</td>
-                                        <td>{{ $ship->shipment_sender }}</td>
-                                        <td>{{ $ship->shipment_receiver }}</td>
-                                        <td>{{ $ship->shipment_origin }}</td>
-                                        <td>{{ $ship->shipment_destination }}</td>
                                         @if ($ship->histories->count() > 0)
                                             <td>{{ ucwords(str_replace('_', ' ', $ship->histories->last()->shipment_status)) }}
                                             </td>
